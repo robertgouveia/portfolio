@@ -11,10 +11,48 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+@font-face {
+  font-family: "LTSuperior-Regular";
+  src: local("LTSuperior-Regular"), url("./fonts/LTSuperior-Regular.otf");
+}
+
+@font-face {
+  font-family: "LTSuperior-Medium";
+  src: local("LTSuperior-Medium"), url("./fonts/LTSuperior-Medium.otf");
+}
+
+@font-face {
+  font-family: "LTSuperior-Semibold";
+  src: local("LTSuperior-Semibold"), url("./fonts/LTSuperior-Semibold.otf");
+}
+
+@font-face {
+  font-family: "LTSuperior-Bold";
+  src: local("LTSuperior-Bold"), url("./fonts/LTSuperior-Bold.otf");
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
 html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  font-family: "LTSuperior-Regular", monospace;
+  text-align: center;
+}
+
+body {
+  width: 100%;
+  padding: 24px 24px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
 /*
@@ -167,7 +205,7 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and (min-width: 45em) {
   /* Style adjustments for viewports that meet the condition */
 }
 
@@ -243,5 +281,215 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
+}
+
+header {
+  width: 100%;
+}
+
+nav {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: none;
+}
+
+nav h1 {
+  width: fit-content;
+  text-align: start;
+  font-size: 16px;
+  position: relative;
+}
+
+nav h1 span {
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  left: 105%;
+}
+
+nav i {
+  text-align: end;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.hero div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero div h2 {
+  font-size: 16px;
+  color: #777777;
+  font-weight: 400;
+}
+
+.hero div ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.hero div ul li {
+  padding: 6px 8px 4px 8px;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #999999;
+  background-color: #EEEEEE;
+  border-radius: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+main .images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 371px;
+}
+
+main .images .img {
+  border-radius: 8px;
+  filter: saturate(0);
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-position: center center;
+}
+
+main .images .img:first-child{
+  background-image: url("./../img/laptop.jpg");
+}
+
+main .images .img:last-child{
+  background-image: url("./../img/manchester.jpg");
+}
+
+main .services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+main .services-container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .services-container header h1:first-child{
+  text-align: start;
+}
+
+main .services-container header h1:last-child{
+  text-align: end;
+}
+
+main .services-container header h1 {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+main .services-container .services {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+main .services-container .services .service {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(17, 17, 17, 0.11);
+  border-radius: 8px;
+  padding: 16px;
+  gap: 8px;
+}
+
+main .services-container .services .service h3 {
+  font-weight: 400;
+  color: #555555;
+}
+
+main .services-container .services .service ul {
+  display: flex;
+  gap: 16px;
+}
+
+main .services-container .services .service ul li {
+  background: white;
+  border-radius: 50px;
+  font-size: 12px;
+  padding: 8px 8px 4px 8px;
+  white-space: nowrap;
+}
+
+.CTA {
+  width: 100%;
+  background: #222222;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+}
+
+.CTA h1 {
+  font-size: 32px;
+  color: white;
+}
+
+.CTA h2 {
+  font-size: 16px;
+  color: #dddddd;
+}
+
+.CTA a {
+  width: 100%;
+  background: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 8px 2px 8px;
+  font-weight: 800;
+  font-size: 16px;
 }
 
