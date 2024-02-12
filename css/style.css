@@ -48,13 +48,20 @@ body header ul {
 }
 body header ul li {
   width: fit-content;
-  padding: 10px 16px 6px 16px;
   border-radius: 8px;
   border: 1px solid #777777;
   display: flex;
   justify-content: center;
   align-content: center;
   font-size: 12px;
+  transition: 0.3s all;
+}
+body header ul li:hover {
+  background: #dddddd;
+  padding: 0 12px;
+}
+body header ul li a {
+  padding: 10px 16px 6px 16px;
 }
 body header ul li:last-child{
   background: #222222;
@@ -75,6 +82,11 @@ nav h1 {
   text-align: start;
   font-size: 16px;
   position: relative;
+  transition: 0.2s all;
+}
+nav h1:hover {
+  font-size: 24px;
+  transform: rotate(-15deg);
 }
 nav h1 span {
   font-size: 16px;
