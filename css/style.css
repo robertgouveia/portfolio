@@ -65,6 +65,23 @@ body header ul li a {
 }
 body header ul li:last-child{
   background: #222222;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+body header ul li:last-child::before{
+  position: absolute;
+  content: "";
+  left: 0;
+  top: -50%;
+  width: 5px;
+  height: 200%;
+  background: white;
+  transform: translateX(-150px) rotate(-45deg);
+  transition: 0.5s all;
+}
+body header ul li:last-child:hover::before{
+  transform: translateX(150px) rotate(-45deg);
 }
 body header ul li:last-child a {
   color: white;
@@ -82,11 +99,6 @@ nav h1 {
   text-align: start;
   font-size: 16px;
   position: relative;
-  transition: 0.2s all;
-}
-nav h1:hover {
-  font-size: 24px;
-  transform: rotate(-15deg);
 }
 nav h1 span {
   font-size: 16px;
@@ -181,11 +193,27 @@ main .services-container .services .service {
   padding: 16px;
   gap: 8px;
   border: 1px solid lightgrey;
+  position: relative;
+  cursor: pointer;
 }
 main .services-container .services .service div {
   display: flex;
   justify-content: space-between;
   align-content: center;
+}
+main .services-container .services .service::before {
+  width: 0;
+  height: 100%;
+  background: #eeeeee;
+  content: "";
+  right: 0;
+  top: 0;
+  position: absolute;
+  transition: 0.5s all;
+  z-index: -1;
+}
+main .services-container .services .service:hover::before{
+  width: 100%;
 }
 main .services-container .services .service div h2 {
   text-align: start;
@@ -389,7 +417,12 @@ textarea {
   }
   body main .images .img:first-child {
     width: 45%;
+    transition: 0.5s all;
   }
+  body main .images .img:first-child:hover {
+    width: 155%;
+  }
+
   body main .services-container .services .service ul li {
     font-size: 12px;
   }
