@@ -370,5 +370,58 @@ textarea {
   }
 }
 @media only screen and (min-width: 836px) {
-
+  body .images {
+    flex-direction: row;
+  }
+  body .images .img-container {
+    transition: 0.5s all;
+    height: 200px;
+  }
+  body .images .img-container:hover {
+    width: 175%;
+  }
+  nav .menu {
+    display: none;
+  }
+  body header section:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body header section .toggle_menu {
+    display: flex;
+    height: fit-content;
+    justify-content: end;
+    align-items: center;
+    gap: 8px;
+  }
+  body header section li {
+    width: fit-content;
+  }
+  body header section li .nav_item {
+    padding: 8px 16px 4px 16px;
+    transition: 0.3s all;
+  }
+  body header section li .nav_item:hover {
+    padding: 8px 24px 4px 24px;
+    background: var(--main-gray);
+  }
+  main ul .service {
+    position: relative;
+    overflow: hidden;
+  }
+  main ul .service::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: var(--main-gray);
+    transition: 0.3s all;
+    z-index: -1;
+  }
+  main ul .service:hover::before{
+    width: 100%;
+  }
 }
