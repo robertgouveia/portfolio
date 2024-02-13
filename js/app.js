@@ -8,7 +8,6 @@ nav.addEventListener('click', () => {
     nav.classList.remove('fa-x')
     overlay.classList.remove('active')
     content.classList.remove('active')
-
   } else {
     nav.classList.add('active')
     nav.classList.remove('fa-bars')
