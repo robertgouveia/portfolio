@@ -23,7 +23,7 @@
       <ul class="toggle_menu">
         <li><a href="#" class="nav_item">PROJECTS</a></li>
         <li><a href="#" class="nav_item">ABOUT</a></li>
-        <li><a href="#" class="nav_item">LET'S TALK</a></li>
+        <li><a href="#contact" class="nav_item">LET'S TALK</a></li>
       </ul>
     </section>
     <section>
@@ -86,6 +86,28 @@
         </a>
       </li>
     </ul>
+
+    <section class="contact" id="contact">
+      <form action="https://formsubmit.co/robertgouveia03@hotmail.com" method="POST">
+        <label for="email">
+          Email:
+          <input id="email" type="email" name="email" required>
+        </label>
+        <label for="type">
+          Type:
+          <select name="type" id="type" required>
+            <option value="job_offer">Job Offering</option>
+            <option value="collaboration">Collaboration</option>
+            <option value="other">Other Reason</option>
+          </select>
+        </label>
+        <label for="message">
+          Message:
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
   </main>
 
 </body>
