@@ -15,6 +15,7 @@ nav.addEventListener('click', () => {
     overlay.classList.add('active')
     setTimeout(function () {
       content.classList.add('active')
+      overlay.style.display = 'flex'
     }, 500);
   }
 })

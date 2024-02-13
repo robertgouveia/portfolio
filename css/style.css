@@ -41,7 +41,7 @@ body {
   max-width: 1200px;
 }
 body .overlay {
-  display: flex;
+  display: none;
   width: 100%;
   height: 0;
   transition: 1s all;
