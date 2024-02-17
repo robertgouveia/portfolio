@@ -6,6 +6,8 @@ const load = document.getElementById('load')
 let menu_toggle = false
 let repo_amount = 3
 
+let jsonResponse = []
+
 const createRepoListElement = (element, name, url, description, topics) => {
   let list = document.createElement('li')
   list.classList.add('service')
@@ -64,7 +66,8 @@ const getRepos = async () => {
   try {
     const response = await fetch('https://api.github.com/users/robertgouveia/repos')
     if (response.ok) {
-      return await response.json()
+      jsonResponse = await response.json()
+      return jsonResponse
     } else {
       console.log('error retrieving data')
     }
@@ -76,16 +79,20 @@ const getRepos = async () => {
 const renderResponse = (repos) => {
   resetRepoListElement(reposElement)
   for(let i = 0; i < repo_amount; i++){
-    createRepoListElement(reposElement, repos[i]['name'], repos[i]['html_url'], repos[i]['description'], repos[i]['topics'])
+    if(repos[i]){
+      createRepoListElement(reposElement, repos[i]['name'], repos[i]['html_url'], repos[i]['description'], repos[i]['topics'])
+    }
+    if(repo_amount >= repos.length){
+      load.remove()
+    }
   }
 }
 
 load.addEventListener('click', async (event) => {
   event.preventDefault();
   repo_amount += 3
-  const repos = await getRepos()
-  if(repos) {
-    renderResponse(repos)
+  if(jsonResponse) {
+    renderResponse(jsonResponse)
   }
 })
 
