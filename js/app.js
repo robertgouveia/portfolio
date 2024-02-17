@@ -64,7 +64,12 @@ menu.addEventListener('click', () => {
 
 const getRepos = async () => {
   try {
-    const response = await fetch('https://api.github.com/users/robertgouveia/repos')
+    const response = await fetch('https://api.github.com/users/robertgouveia/repos', {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer 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'
+      }
+    })
     if (response.ok) {
       jsonResponse = await response.json()
       return jsonResponse
