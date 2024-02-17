@@ -5,7 +5,6 @@ const load = document.getElementById('load')
 
 let menu_toggle = false
 let repo_amount = 3
-let loaded = 0
 
 const createRepoListElement = (element, name, url, description, topics) => {
   let list = document.createElement('li')
