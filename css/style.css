@@ -107,6 +107,19 @@ nav section span {
   padding: 4px;
   cursor: pointer;
 }
+#load{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 8px 8px;
+  margin-top: 4px;
+  border: 1px solid var(--mid-gray);
+  cursor: pointer;
+  background: white;
+}
+#load:hover {
+  background: var(--main-gray);
+}
 
 /* IMAGES */
 .images {
