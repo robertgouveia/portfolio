@@ -2,11 +2,14 @@ const menu = document.querySelector('.menu')
 const mobile_menu = document.querySelector('.toggle_menu')
 const reposElement = document.getElementById('repos')
 const load = document.getElementById('load')
+const filter = document.getElementById('filter')
 
 let menu_toggle = false
 let repo_amount = 3
+let filterinput = ''
 
 let jsonResponse = []
+let filterResponse = []
 
 const createRepoListElement = (element, name, url, description, topics) => {
   let list = document.createElement('li')
@@ -67,7 +70,7 @@ const getRepos = async () => {
     const response = await fetch('https://api.github.com/users/robertgouveia/repos', {
       method: 'GET',
       headers: {
-        'Authorization': 'Bearer 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'
+        'Authorization': 'Bearer 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'
       }
     })
     if (response.ok) {
@@ -87,9 +90,14 @@ const renderResponse = (repos) => {
     if(repos[i]){
       createRepoListElement(reposElement, repos[i]['name'], repos[i]['html_url'], repos[i]['description'], repos[i]['topics'])
     }
-    if(repo_amount >= repos.length){
-      load.remove()
-    }
+  }
+
+  if(repo_amount >= repos.length){
+    load.innerHTML = 'No More To Load'
+    load.classList.add('inactive')
+  } else {
+    load.innerHTML = 'Load More'
+    load.classList.remove('inactive')
   }
 }
 
@@ -97,7 +105,11 @@ load.addEventListener('click', async (event) => {
   event.preventDefault();
   repo_amount += 3
   if(jsonResponse) {
-    renderResponse(jsonResponse)
+    if(filterinput){
+      renderResponse(filterResponse)
+    } else {
+      renderResponse(jsonResponse)
+    }
   }
 })
 
@@ -108,3 +120,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 })
 
+filter.addEventListener('change', (event) => {
+  filterinput = event.target.value
+  repo_amount = 3
+  if(filterinput === ''){
+    renderResponse(jsonResponse)
+  }
+  else {
+    filterResponse = jsonResponse.filter(project => {
+      return (project.name).includes(filterinput) || (project.topics).includes(filterinput)
+    })
+    if(filterResponse){
+      renderResponse(filterResponse)
+    }
+  }
+})

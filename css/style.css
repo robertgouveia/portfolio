@@ -160,6 +160,10 @@ main section h1 {
   font-size: 12px;
   width: fit-content;
 }
+#clear {
+  text-decoration: underline;
+  cursor: pointer;
+}
 main ul {
   display: flex;
   flex-direction: column;
@@ -252,7 +256,23 @@ main ul {
   cursor: pointer;
 }
 
+/* FILTER */
+.filter input {
+  height: 32px;
+  padding: 8px 0 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--mid-gray);
+}
+
+
 /* HELPERS */
+#load.inactive {
+  color: var(--mid-gray);
+  cursor: not-allowed;
+}
+#load.inactive:hover {
+  background: none;
+}
 
 h1 {
   font-size: 24px;
