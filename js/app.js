@@ -25,7 +25,7 @@ const createRepoListElement = (element, name, url, description, topics) => {
   if(topics){
     topics.forEach(topic => {
       let li = document.createElement('li')
-      li.classList.add('tag')
+      li.classList.add('tag', `${topic}`)
       let i = document.createElement('i')
       i.classList.add('fa-solid', 'fa-tag')
       li.innerHTML = topic
@@ -67,7 +67,7 @@ const getRepos = async () => {
     const response = await fetch('https://api.github.com/users/robertgouveia/repos', {
       method: 'GET',
       headers: {
-        'Authorization': 'Bearer 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'
+        'Authorization': 'Bearer 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'
       }
     })
     if (response.ok) {

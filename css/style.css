@@ -477,3 +477,31 @@ textarea {
     width: 100%;
   }
 }
+
+/* TAGS */
+.javascript {
+  background: #ffa864;
+  color: white;
+}
+.mocha {
+  background: #b7603d;
+  color: white;
+}
+.react {
+  background: #67e2fd;
+  color: white;
+}
+
+.portfolio {
+  background: #ff6c6c;
+  color: white;
+}
+
+.cli, .ui, .testing{
+  background: none;
+  border: 1px dashed var(--main-darkgray);
+}
+.api {
+  background: none;
+  border: 1px solid #ff7e7e;
+}
