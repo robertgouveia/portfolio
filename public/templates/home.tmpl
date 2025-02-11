@@ -1,0 +1,29 @@
+{{ define "title" }}Home{{ end }}
+
+{{ define "content" }}
+    <div class="container-lg d-flex justify-content-center align-items-center" style="min-height: 80vh">
+        <div class="row text-center text-lg-start">
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                <img src="./static/img/me.png" alt="me" class="img-fluid rounded-5">
+            </div>
+            <div class="col-12 col-lg-8 p-3 d-flex flex-column">
+                <h1 class="fw-bold">👋 Welcome to my web page!</h1>
+                <hr class="mb-3">
+                <p class="text-secondary text-start fs-4 pe-5">
+                    I’m a developer based in the UK 🇬🇧, specializing in web technologies. Currently, I’m diving into Go (Golang) and sharing my journey, projects, and insights on my YouTube channel!
+                </p>
+                <div class="mt-auto">
+                    <p class="text-secondary text-start fs-4 pe-5">💻 My tech stack:</p>
+                    <div class="d-flex">
+                        <img src="./static/img/go.svg" alt="go logo" width="50" height="50"/>
+                        <img src="./static/img/typescript.svg" alt="go logo" width="50" height="50"/>
+                        <img src="./static/img/react.svg" alt="go logo" width="50" height="50"/>
+                        <img src="./static/img/postgres.svg" alt="go logo" width="50" height="50"/>
+                        <img src="./static/img/mongo.svg" alt="go logo" width="50" height="50"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row"></div>
+    </div>
+{{ end }}
