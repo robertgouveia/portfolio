@@ -10,7 +10,7 @@ func main() {
 	flag.StringVar(&env, "env", "development", "environment to use")
 	flag.Parse()
 
-	s := server.NewServer(":80", env)
+	s := server.NewServer(":443", env)
 
 	go s.ListenForShutdown()
 
