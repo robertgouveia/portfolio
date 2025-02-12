@@ -1,11 +1,14 @@
 package usecase
 
 import (
+	"embed"
 	"encoding/json"
 	"github.com/robertgouveia/portfolio/internal/blog"
 	"github.com/robertgouveia/portfolio/internal/models"
-	"os"
 )
+
+//go:embed data/blogs.json
+var dataFile embed.FS
 
 type BlogUseCase struct {
 }
@@ -15,7 +18,7 @@ func NewBlogUseCase() blog.UseCase {
 }
 
 func (u *BlogUseCase) GetBlogs() ([]models.Blog, error) {
-	file, err := os.ReadFile("./data/blogs.json")
+	file, err := dataFile.ReadFile("data/blogs.json")
 	if err != nil {
 		return nil, err
 	}
