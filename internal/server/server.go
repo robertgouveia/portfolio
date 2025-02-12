@@ -46,7 +46,7 @@ func (s *Server) Run() error {
 		go func() {
 			fmt.Println("Redirecting HTTP to HTTPS on port 80...")
 			err := http.ListenAndServe(":80", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-				http.Redirect(w, r, "https://websitech.uk", http.StatusMovedPermanently)
+				http.Redirect(w, r, "https://robertgee.dev", http.StatusMovedPermanently)
 			}))
 			if err != nil {
 				fmt.Println("Error starting HTTP server:", err)
@@ -54,7 +54,7 @@ func (s *Server) Run() error {
 		}()
 
 		go func() {
-			if err := srv.ListenAndServeTLS("/etc/letsencrypt/live/websitech.uk/fullchain.pem", "/etc/letsencrypt/live/websitech.uk/privkey.pem"); err != nil && err != http.ErrServerClosed {
+			if err := srv.ListenAndServeTLS("/etc/letsencrypt/live/robertgee.dev/fullchain.pem", "/etc/letsencrypt/live/robertgee.dev/privkey.pem"); err != nil && err != http.ErrServerClosed {
 				s.errorLog.Println(err)
 				s.errorChan <- err
 			}
