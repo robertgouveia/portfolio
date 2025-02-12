@@ -2,9 +2,9 @@
 
 {{ define "content" }}
     <div class="bg-white">
-        <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+        <div class="py-24 sm:px-0 sm:py-12 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
-                <img class="inline-block size-32 rounded-md mb-12" src="./static/img/me.png" alt="">
+                <img class="inline-block size-86 lg:size-48 rounded-md my-12" src="./static/img/me.png" alt="">
                 <h2 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">👋 Welcome to my personal site!</h2>
                 <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-gray-600">I am a backend Golang developer based in the UK 🇬🇧 This website is here to showcase my work and for me to discuss some topics I personally found interesting.</p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
@@ -15,13 +15,13 @@
         </div>
     </div>
     <div class="bg-white py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl lg:text-center">
+        <div class="mx-auto max-w-7xl lg:px-8">
+            <div class="mx-auto max-w-3xl lg:text-center">
                 <h2 class="text-base/7 font-semibold text-indigo-600">Technical Details</h2>
                 <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance">My current tech stack</p>
-                <p class="mt-6 text-lg/8 text-gray-600">I like the simple technologies and I tend to opt in for less build dependencies / a simpler deployment process.</p>
+                <p class="mt-6 text-xl/8 text-gray-600">I like the simple technologies and I tend to opt in for less build dependencies / a simpler deployment process.</p>
             </div>
-            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+            <div class="mx-auto mt-16 max-w-3xl sm:mt-20 lg:mt-24 lg:max-w-none">
                 <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                     <div class="flex flex-col">
                         <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900">
@@ -32,9 +32,9 @@
                             Golang
                         </dt>
                         <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600">
-                            <p class="flex-auto">Golang is my go-to backend language as its simple yet super powerful. You can make anything in golang with such little time spent!</p>
+                            <p class="flex-auto text-xl/8 lg:text-sm/8">Golang is my go-to backend language as its simple yet super powerful. You can make anything in golang with such little time spent!</p>
                             <p class="mt-6">
-                                <a href="/projects?type=go" class="text-sm/6 font-semibold text-indigo-600">Golang Projects<span aria-hidden="true">→</span></a>
+                                <a href="/projects?type=go" class="text-lg/6 lg:text-sm/8 font-semibold text-indigo-600">Golang Projects<span aria-hidden="true">→</span></a>
                             </p>
                         </dd>
                     </div>
@@ -46,9 +46,9 @@
                             JSDoc
                         </dt>
                         <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600">
-                            <p class="flex-auto">I like to keep my code nicely structured and types can achieve this, organising my entities and restricting their types. JSDoc also does not require a build step.</p>
+                            <p class="flex-auto text-xl/8 lg:text-sm/8">I like to keep my code nicely structured and types can achieve this, organising my entities and restricting their types. JSDoc also does not require a build step.</p>
                             <p class="mt-6">
-                                <a href="/projects?type=jsdoc" class="text-sm/6 font-semibold text-indigo-600">Typescript Projects <span aria-hidden="true">→</span></a>
+                                <a href="/projects?type=jsdoc" class="text-lg/6 lg:text-sm/8 font-semibold text-indigo-600">Typescript Projects <span aria-hidden="true">→</span></a>
                             </p>
                         </dd>
                     </div>
@@ -63,10 +63,7 @@
                             Postgres
                         </dt>
                         <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600">
-                            <p class="flex-auto">This is my preferred database due to the extensive functions, transaction handling and extensions that come with postgres.</p>
-                            <p class="mt-6">
-                                <a href="/projects?type=postgres" class="text-sm/6 font-semibold text-indigo-600">Learn more <span aria-hidden="true">→</span></a>
-                            </p>
+                            <p class="flex-auto text-xl/8 lg:text-sm/8">This is my preferred database due to the extensive functions, transaction handling and extensions that come with postgres.</p>
                         </dd>
                     </div>
                 </dl>

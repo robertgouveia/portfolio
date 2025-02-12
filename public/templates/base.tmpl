@@ -5,11 +5,11 @@
     <title>Robert Gee ~ {{ block "title" . }}{{ end }}</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <header>
         {{ block "nav" . }}{{ end }}
     </header>
-    <main>
+    <main class="flex-grow">
         {{ block "content" . }}{{ end }}
     </main>
     <footer class="bg-white">
