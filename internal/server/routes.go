@@ -1,6 +1,10 @@
 package server
 
 import (
+	bHttp "github.com/robertgouveia/portfolio/internal/blog/delivery/http"
+	bUseCase "github.com/robertgouveia/portfolio/internal/blog/usecase"
+	cHttp "github.com/robertgouveia/portfolio/internal/contact/delivery/http"
+	pHttp "github.com/robertgouveia/portfolio/internal/project/delivery/http"
 	"net/http"
 )
 
@@ -21,17 +25,16 @@ func (s *Server) routes() *http.ServeMux {
 		s.Render(w, nil, "base", "home", "nav")
 	})
 
-	mux.HandleFunc("/blog", func(w http.ResponseWriter, r *http.Request) {
-		s.Render(w, nil, "base", "blog", "nav")
-	})
+	buseCase := bUseCase.NewBlogUseCase()
 
-	mux.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
-		s.Render(w, nil, "base", "projects", "nav")
-	})
+	bHandler := bHttp.NewBlogHandler(s.errorLog, buseCase, s.Render)
+	bHttp.MapRoutes(mux, bHandler)
 
-	mux.HandleFunc("/contact", func(w http.ResponseWriter, r *http.Request) {
-		s.Render(w, nil, "base", "contact", "nav")
-	})
+	pHandler := pHttp.NewProjectHandler(s.Render)
+	pHttp.MapRoutes(mux, pHandler)
+
+	cHandler := cHttp.NewContactHandler(s.Render)
+	cHttp.MapRoutes(mux, cHandler)
 
 	return mux
 }

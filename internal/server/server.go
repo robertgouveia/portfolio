@@ -99,7 +99,7 @@ func (s *Server) ListenForShutdown() {
 	s.infoLog.Println("Server gracefully stopped")
 }
 
-func (s *Server) Render(w http.ResponseWriter, data *interface{}, layout string, page string, partial ...string) {
+func (s *Server) Render(w http.ResponseWriter, data map[string]interface{}, layout string, page string, partial ...string) {
 	if s.templateCache[page] != nil && s.env == "production" {
 		s.infoLog.Printf("Cache hit: %s", page)
 		s.templateCache[page].Execute(w, data)
