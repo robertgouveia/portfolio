@@ -21,5 +21,17 @@ func (s *Server) routes() *http.ServeMux {
 		s.Render(w, nil, "base", "home", "nav")
 	})
 
+	mux.HandleFunc("/blog", func(w http.ResponseWriter, r *http.Request) {
+		s.Render(w, nil, "base", "blog", "nav")
+	})
+
+	mux.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
+		s.Render(w, nil, "base", "projects", "nav")
+	})
+
+	mux.HandleFunc("/contact", func(w http.ResponseWriter, r *http.Request) {
+		s.Render(w, nil, "base", "contact", "nav")
+	})
+
 	return mux
 }

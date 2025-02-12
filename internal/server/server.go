@@ -42,22 +42,31 @@ func (s *Server) Run() error {
 
 	s.infoLog.Printf("listening on %s", s.addr)
 
-	go func() {
-		fmt.Println("Redirecting HTTP to HTTPS on port 80...")
-		err := http.ListenAndServe(":80", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			http.Redirect(w, r, "https://websitech.uk", http.StatusMovedPermanently)
-		}))
-		if err != nil {
-			fmt.Println("Error starting HTTP server:", err)
-		}
-	}()
+	if s.env == "production" {
+		go func() {
+			fmt.Println("Redirecting HTTP to HTTPS on port 80...")
+			err := http.ListenAndServe(":80", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				http.Redirect(w, r, "https://websitech.uk", http.StatusMovedPermanently)
+			}))
+			if err != nil {
+				fmt.Println("Error starting HTTP server:", err)
+			}
+		}()
 
-	go func() {
-		if err := srv.ListenAndServeTLS("/etc/letsencrypt/live/websitech.uk/fullchain.pem", "/etc/letsencrypt/live/websitech.uk/privkey.pem"); err != nil && err != http.ErrServerClosed {
-			s.errorLog.Println(err)
-			s.errorChan <- err
-		}
-	}()
+		go func() {
+			if err := srv.ListenAndServeTLS("/etc/letsencrypt/live/websitech.uk/fullchain.pem", "/etc/letsencrypt/live/websitech.uk/privkey.pem"); err != nil && err != http.ErrServerClosed {
+				s.errorLog.Println(err)
+				s.errorChan <- err
+			}
+		}()
+	} else {
+		go func() {
+			if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+				s.errorLog.Println(err)
+				s.errorChan <- err
+			}
+		}()
+	}
 
 	select {
 	case err := <-s.errorChan:
