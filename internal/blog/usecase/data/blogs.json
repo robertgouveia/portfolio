@@ -1,34 +1,58 @@
 [
   {
+    "id": 1,
     "title": "Go + Nginx on Ubuntu",
     "description": "Here I talk about my experience in deploying Golang and Nginx on an Ubuntu server.",
     "date": "12 Feb 2025",
     "tags": [
       "golang"
-    ]
+    ],
+    "paragraphs": [
+      "This blog is currently under development"
+    ],
+    "image": "/static/img/nginx.png",
+    "caption": "The above shows an example of Nginx in use with Ubuntu on digital ocean"
   },
   {
+    "id": 2,
     "title": "Making my first product",
     "description": "Here I talk about how I found my idea and how I am taking the steps to bring it to life!",
     "date": "12 Feb 2025",
     "tags": [
       "golang"
-    ]
+    ],
+    "paragraphs": [
+      "This blog is currently under development"
+    ],
+    "image": "",
+    "caption": "Test 123"
   },
   {
+    "id": 3,
     "title": "Removing the extra build step with JSDoc",
     "description": "Here I talk about how I am moving back to vanilla JS and making it somewhat bearable",
     "date": "12 Feb 2025",
     "tags": [
       "jsdoc"
-    ]
+    ],
+    "paragraphs": [
+      "This blog is currently under development"
+    ],
+    "image": "",
+    "caption": "Test 123"
   },
   {
+    "id": 4,
     "title": "Nginx configuration for golang",
     "description": "How I am delegating port handling on my Golang app with Nginx",
     "date": "12 Feb 2025",
     "tags": [
       "golang"
-    ]
+    ],
+    "paragraphs": [
+      "This blog is currently under development"
+    ],
+    "image": "",
+    "caption": "Test 123"
   }
 ]

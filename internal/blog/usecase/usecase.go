@@ -3,6 +3,7 @@ package usecase
 import (
 	"embed"
 	"encoding/json"
+	"errors"
 	"github.com/robertgouveia/portfolio/internal/blog"
 	"github.com/robertgouveia/portfolio/internal/models"
 	"log"
@@ -23,7 +24,6 @@ func NewBlogUseCase(log *log.Logger) blog.UseCase {
 }
 
 func (u *BlogUseCase) GetBlogs(search string) ([]models.Blog, error) {
-	u.log.Println(search)
 	file, err := dataFile.ReadFile("data/blogs.json")
 	if err != nil {
 		return nil, err
@@ -47,4 +47,25 @@ func (u *BlogUseCase) GetBlogs(search string) ([]models.Blog, error) {
 	}
 
 	return match, nil
+}
+
+func (u *BlogUseCase) GetBlog(id int) (*models.Blog, error) {
+	file, err := dataFile.ReadFile("data/blogs.json")
+	if err != nil {
+		return nil, err
+	}
+
+	var blogs []models.Blog
+	err = json.Unmarshal(file, &blogs)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, b := range blogs {
+		if b.Id == id {
+			return &b, nil
+		}
+	}
+
+	return nil, errors.New("not found")
 }

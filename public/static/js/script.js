@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function (){
         removeActiveClasses();
         homelink.classList.add("border-indigo-500", "text-indigo-500");
         homelink.classList.remove("border-transparent");
-    } else if (window.location.pathname === "/blog") {
+    } else if (window.location.pathname === "/blogs") {
         removeActiveClasses();
         bloglink.classList.add("border-indigo-500", "text-indigo-500");
         bloglink.classList.remove("border-transparent");
@@ -55,6 +55,6 @@ document.addEventListener("DOMContentLoaded", function (){
 
     search.addEventListener("keydown", function (event) {
         if (event.code !== "Enter") return;
-        window.location.href = `/blog?search=${encodeURIComponent(search.value)}`
+        window.location.href = `/blogs?search=${encodeURIComponent(search.value)}`
     })
 })

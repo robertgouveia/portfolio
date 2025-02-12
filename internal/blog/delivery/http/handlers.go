@@ -4,6 +4,8 @@ import (
 	"github.com/robertgouveia/portfolio/internal/blog"
 	"log"
 	"net/http"
+	"strconv"
+	"strings"
 )
 
 type BlogHandler struct {
@@ -34,5 +36,28 @@ func (h *BlogHandler) GetBlogs() http.HandlerFunc {
 		h.render(w, map[string]interface{}{
 			"blogs": blogs,
 		}, "base", "blog", "nav")
+	}
+}
+
+func (h *BlogHandler) GetBlog() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		path := r.URL.Path
+		param := strings.TrimPrefix(path, "/blog/")
+		id, err := strconv.Atoi(param)
+		if err != nil || param == " " {
+			h.render(w, nil, "base", "notfound", "nav") // TODO: Change to Error page
+			return
+		}
+
+		b, err := h.uc.GetBlog(id)
+		if err != nil {
+			h.logger.Println(err)
+			h.render(w, nil, "base", "notfound", "nav") // TODO: Change to Error page
+			return
+		}
+
+		h.render(w, map[string]interface{}{
+			"blog": b,
+		}, "base", "blogPage", "nav")
 	}
 }

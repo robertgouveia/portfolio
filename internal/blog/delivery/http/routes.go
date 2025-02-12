@@ -6,5 +6,6 @@ import (
 )
 
 func MapRoutes(mux *http.ServeMux, h blog.Handler) {
-	mux.HandleFunc("/blog", h.GetBlogs())
+	mux.HandleFunc("/blogs", h.GetBlogs())
+	mux.HandleFunc("/blog/", h.GetBlog())
 }
