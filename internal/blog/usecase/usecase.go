@@ -5,19 +5,25 @@ import (
 	"encoding/json"
 	"github.com/robertgouveia/portfolio/internal/blog"
 	"github.com/robertgouveia/portfolio/internal/models"
+	"log"
+	"strings"
 )
 
 //go:embed data/blogs.json
 var dataFile embed.FS
 
 type BlogUseCase struct {
+	log *log.Logger
 }
 
-func NewBlogUseCase() blog.UseCase {
-	return &BlogUseCase{}
+func NewBlogUseCase(log *log.Logger) blog.UseCase {
+	return &BlogUseCase{
+		log: log,
+	}
 }
 
-func (u *BlogUseCase) GetBlogs() ([]models.Blog, error) {
+func (u *BlogUseCase) GetBlogs(search string) ([]models.Blog, error) {
+	u.log.Println(search)
 	file, err := dataFile.ReadFile("data/blogs.json")
 	if err != nil {
 		return nil, err
@@ -29,5 +35,16 @@ func (u *BlogUseCase) GetBlogs() ([]models.Blog, error) {
 		return nil, err
 	}
 
-	return blogs, nil
+	if search == "" {
+		return blogs, nil
+	}
+
+	var match []models.Blog
+	for _, b := range blogs {
+		if strings.Contains(strings.ToLower(b.Title), search) || strings.Contains(strings.ToLower(b.Description), search) {
+			match = append(match, b)
+		}
+	}
+
+	return match, nil
 }

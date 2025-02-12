@@ -25,7 +25,7 @@ func (s *Server) routes() *http.ServeMux {
 		s.Render(w, nil, "base", "home", "nav")
 	})
 
-	buseCase := bUseCase.NewBlogUseCase()
+	buseCase := bUseCase.NewBlogUseCase(s.infoLog)
 
 	bHandler := bHttp.NewBlogHandler(s.errorLog, buseCase, s.Render)
 	bHttp.MapRoutes(mux, bHandler)

@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function (){
     const projectslink = document.getElementById("projects-link");
     const contactlink = document.getElementById("contact-link");
 
+    let searchParams = window.location.search;
+    let params = new URLSearchParams(searchParams)
+
+    search.value = params.get("search");
+
 // Function to remove all active classes
     function removeActiveClasses() {
         homelink.classList.remove("border-indigo-500", "text-indigo-500");
@@ -50,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function (){
 
     search.addEventListener("keydown", function (event) {
         if (event.code !== "Enter") return;
-
-        window.location.href = "https://robertgee.dev/projects?search=" + search.value
+        window.location.href = `/blog?search=${encodeURIComponent(search.value)}`
     })
 })

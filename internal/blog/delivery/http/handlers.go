@@ -22,7 +22,9 @@ func NewBlogHandler(log *log.Logger, uc blog.UseCase, r func(w http.ResponseWrit
 
 func (h *BlogHandler) GetBlogs() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		blogs, err := h.uc.GetBlogs()
+		search := r.URL.Query().Get("search")
+
+		blogs, err := h.uc.GetBlogs(search)
 		if err != nil {
 			h.logger.Println(err)
 			h.render(w, nil, "base", "notfound", "nav") // TODO: Change to Error page
