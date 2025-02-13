@@ -1,14 +1,14 @@
 {{ define "nav" }}
-    <nav class="bg-white shadow">
-        <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+    <nav class="bg-white shadow mt-3 pb-3 lg:mt-0">
+        <div class="mx-auto max-w-7xl px-2 lg:px-4 lg:px-8">
             <div class="flex h-16 justify-between">
                 <div class="flex px-2 lg:px-0">
-                    <div class="flex shrink-0 items-center">
-                        <h1 class="font-bold text-indigo-500 pe-8">Robert Gee</h1>
+                    <div class="flex shrink-0 items-center lg:hidden">
+                        <h1 class="font-bold text-indigo-500 pe-8 text-4xl lg:text-sm">Robert Gee</h1>
                     </div>
                     <div class="hidden lg:ml-6 lg:flex lg:space-x-8">
                         <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-                        <a id="home-link" href="/" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-900">Home</a>
+                        <a id="home-link" href="/" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-900">Robert Gee</a>
                         <a id="blog-link" href="/blogs" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium">Blog</a>
                         <a id="projects-link" href="/projects" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium">Projects</a>
                         <a id="contact-link" href="/contact" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium">Contact</a>
@@ -33,7 +33,7 @@
 
                           Menu open: "hidden", Menu closed: "block"
                         -->
-                        <svg id="open-toggle" class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                        <svg id="open-toggle" class="block size-16 lg:size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                         <!--
@@ -41,7 +41,7 @@
 
                           Menu open: "block", Menu closed: "hidden"
                         -->
-                        <svg id="close-toggle" class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                        <svg id="close-toggle" class="hidden size-16 lg:size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                         </svg>
                     </button>
@@ -53,10 +53,10 @@
         <div class="lg:hidden hidden" id="mobile-menu">
             <div class="space-y-1 pb-3 pt-2">
                 <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" -->
-                <a href="/" class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700">Home</a>
-                <a href="/blog" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Blog</a>
-                <a href="/projects" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Projects</a>
-                <a href="/contact" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Contact</a>
+                <a href="/" class="block border-l-4 border-indigo-500 bg-indigo-50 py-6 pl-3 pr-4 text-4xl font-medium text-indigo-700">Home</a>
+                <a href="/blogs" class="block border-l-4 border-transparent py-6 pl-3 pr-4 text-4xl font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Blog</a>
+                <a href="/projects" class="block border-l-4 border-transparent py-6 pl-3 pr-4 text-4xl font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Projects</a>
+                <a href="/contact" class="block border-l-4 border-transparent py-6 pl-3 pr-4 text-4xl font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Contact</a>
             </div>
         </div>
     </nav>
